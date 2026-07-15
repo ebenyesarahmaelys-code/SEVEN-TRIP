@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo {
+    color: #fb6600;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbarl {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(14px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 1000;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.links a:hover {
+    color: #ff6b00;
+}
+
+.content {
+    background-color: black;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px;
+    
+}
+
+.reservCourse h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+
+}
+
+.reservCourse p {
+    color: #bfbfbf;
+    margin: 10px;
+}
+
+.Info {
+    background: #181818;
+    padding: 20px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+    width: 700px;
+}
+
+.group h3{
+    margin-bottom: 8px;
+
+}
+
+.group input {
+    width: 100%;
+    padding: 16px;
+    background: #111;
+    border: none;
+    color: white;
+    font-size: 16px;
+}  
+
+.group input:focus {
+    outline: 2px solide #ff6b00;
+}
+
+.content2 {
+   margin-top: 30px;
+   background-color: black;
+   
+   text-align: center;
+}
+
+
+
+.choixV {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
+
+   
+}
+
+
+
+.card-v {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: 0.3s;
+    
+
+}
+
+.card-v:hover {
+    transform: translateY(-6px);
+    transition: 1s;
+}
+
+.card-v img {
+    width: 100%;
+    border-radius: 15px;
+    height: 200px;
+}
+
+.card-v h4 {
+    margin: 20px 0 10px;
+    color: #fb6600;
+
+}
+
+.card-v p {
+    color: #bdbdbd;
+    margin-bottom: 10px;
+}
+
+.btn-choisir1,
+.btn-choisir2,
+.btn-choisir3 {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background: #fb6600;
+}
+
+.Paie {
+    margin: 30px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.Paie input {
+    margin-top: 10px;
+}
+
+.carteMap {
+    margin: 30px;
+    padding: 300px;
+    background-color: rgba(60, 21, 2, 0.214);
+    border-radius: 20px;
+    border: 1px solid rgba(19, 66, 40, 0.945);
+}
+
+.ResumeCourse {
+    
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #181818;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    width: 500px;
+    margin-left: 500px;
+}
+
+.btn-confirmation {
+    margin: 20px;
+    background-color: #ff6b00;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.btn-confirmation:hover {
+    background-color: rgb(51, 84, 3);
+    transform: scaleY(1);
+    transition: 1s;
+
+}
+
+.ResumeCourse h2 {
+    color: #fb6600;
+}
+
+.ResumeCourse p {
+    margin: 3px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid #333;
+    margin-top: 50px;
+    color: #aaa;
+}
+
+
+
+
+
+
