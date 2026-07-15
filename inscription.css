@@ -20,4 +20,79 @@
 .Entet {
     text-align: center;
     margin-bottom: 30px;
+   
+}
+
+.Entet h1 {
+    text-align: center;
+    color: #ff6b33;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.Entet p{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+.cartee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1) ;
+    backdrop-filter: blur(18px);
+    margin-top: 1px;
+}
+
+.cartee input {
+    margin: 10px;
+    border: none;
+    background-color:  rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 18px;
+
+}
+.cartee h2 {
+    color: white;
+    margin-bottom: 35px;
+}
+
+.btn-inscription {
+    padding: 10px;
+    background-color: #ff6b33;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 50%;
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 400px;
+}
+
+.btn-inscription:hover {
+    background:  #ff8c33;
+    transform:scale(1.02);
+}
+
+.cartee p {
+    margin-top: 10px;
+    color: white;
+}
+
+.lien a {
+
+    color: #ff6b33;
+    text-decoration: none;
+}
+
+.lien a:hover {
+    text-decoration: underline;
 }
