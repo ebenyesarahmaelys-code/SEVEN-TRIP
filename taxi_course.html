@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seven-trip Reservation</title>
+    <link rel="stylesheet" href="taxi_course.css">
 </head>
 <body>
-    <div class="logo">
-        <H1>SEVEN-TRIP🚖</H1>
-    </div>
+    
     <nav class="navbarl">
+        <div class="logo">SEVEN-TRIP</div>
+        <div class="links">
         <a href="#">Retour</a>
         <a href="Accueil.html">Accueil</a>
         <a href="#">Boite aux lettres</a>
@@ -17,14 +18,14 @@
         <a href="#">Historique</a>
         <a href="#">Parametres</a>
         <a href="#">A propos</a>
-        
+        </div>
     </nav>
 
     <section class="content">
         <div class="reservCourse">
             <h1>Reservation Course</h1>
             <p>Remplissez les informations ci dessous pour reserver votre Taxi.</p>
-
+        </div>
             <form class="Info">
                 <div class="group">
                 <h3>Depart</h3>
@@ -44,28 +45,29 @@
                 </div>
             
             </form>
-        </div>
+      
     </section>
 
     <section class="content2">
+        <h2>Choissisez votre vehicule</h2>
         <div class="choixV">
-            <h2>Choissisez votre vehicule</h2>
-            <div class="Standard">
-                <img src="" alt="card-v">
+
+            <div class="card-v">
+                <img src="assets/images/Capture d'écran 2026-07-10 174211.png" alt="Taxi-standard">
                 <h4> Taxi Standard</h4>
                 <p>4 places</p>
                 <button class="btn-choisir1">Choisir</button>
             </div>
 
             <div class="card-v">
-                <img src="" alt="TaxiConfort">
+                <img src="assets/images/Capture d'écran 2026-07-10 174304.png" alt="TaxiConfort">
                 <h4>Taxi Confort</h4>
                 <p>4places</p>
                 <button class="btn-choisir2">Choisir</button>
             </div>
 
             <div class="card-v">
-                <img src="" alt="VIP">
+                <img src="assets/images/Capture d'écran 2026-07-10 174340.png" alt="VIP">
                 <h4>VIP</h4>
                 <p>Van 6places</p>
                 <button class="btn-choisir3">Choisir</button>
@@ -75,6 +77,7 @@
 
     <div class="Paie">
         <h2>Mode de paiement</h2>
+
         <input type="radio" id="OM" name="paiement" value="OM">
         <label for="om">Orange Money</label>
 
@@ -101,6 +104,7 @@
 
 <footer>
      <p>2026 SEVEN-TRIP</p>
+     
 </footer>
 </body>
 </html>
