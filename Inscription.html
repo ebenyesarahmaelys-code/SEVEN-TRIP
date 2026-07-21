@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seven-trip Inscription</title>
     <link rel="stylesheet" href="inscription.css">
+    
 </head>
 <body>
     <section class="inscription">
@@ -16,19 +17,20 @@
         <div class="cartee">
             <h2>Inscription 📜</h2>
 
-            <input type="text" name="" id="" placeholder="Nom">
-            <input type="text" placeholder="Prenoms">
-            <input type="email" placeholder="Email (Facultatif)">
-            <input type="text" placeholder="Nom d'utilisateur">
-            <input type="password" placeholder="Mot de passe">
-            <input type="password" placeholder="Confirmer votre mot de passe">
+           <input type="text" id="nom" placeholder="Nom">
+           <input type="text" id="prenom" placeholder="Prenoms">
+           <input type="email" id="email" placeholder="Email (Facultatif)">
+           <input type="text" id="utilisateur" placeholder="Nom d'utilisateur">
+           <input type="password" id="mdp" placeholder="Mot de passe">
+           <input type="password" id="mdp-conf" placeholder="Confirmer votre mot de passe">
 
-            <button class="btn-inscription">S'inscrire</button>
+            <button class="btn-inscription" onclick="inscription()">S'inscrire</button>
 
             <p class="lien">
                 Déja un compte? <a href="Connexion.html">Se connecter</a>
             </p>
         </div>
     </section>
+     <script src="script.js"></script>
 </body>
 </html>
