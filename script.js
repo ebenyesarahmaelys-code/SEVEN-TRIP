@@ -41,3 +41,27 @@ function inscription() {
     // Rediriger vers la page d'accueil
     window.location.href = "Accueil.html";
 }
+
+
+function connexion() {
+    alert ("yes");
+    let utilisateur = document.getElementById("utilisateur").value;
+    let mdp = document.getElementById("mdp").value;
+
+    if (!utilisateur || !mdp) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    let utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+
+    let compteValide = utilisateurs.some(u => u.utilisateur === utilisateur && u.mdp === mdp);
+
+    if(compteValide) {
+        alert("Connexion reussie ! Bienvenue " + utilisateur +"☺️");
+        window.location.href ="Accueil.html";
+
+    } else {
+        alert("Nom d'utilisateur ou mot de passe incorrect.");
+    }
+}
