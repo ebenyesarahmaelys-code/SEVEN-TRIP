@@ -65,3 +65,11 @@ function connexion() {
         alert("Nom d'utilisateur ou mot de passe incorrect.");
     }
 }
+
+function goTaxi() {
+    window.location.href ="taxi_course.html"
+}
+
+function goLoca() {
+    window.location.href ="Location.html"
+}
