@@ -44,7 +44,7 @@ function inscription() {
 
 
 function connexion() {
-    alert ("yes");
+    
     let utilisateur = document.getElementById("utilisateur").value;
     let mdp = document.getElementById("mdp").value;
 
