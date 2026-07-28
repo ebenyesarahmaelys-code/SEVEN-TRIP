@@ -29,19 +29,19 @@
             <form class="Info">
                 <div class="group">
                 <h3>Depart</h3>
-                <input type="text" placeholder="On vous prends ou?">
+                <input type="text" id="depart" placeholder="On vous prends ou?">
                 </div>
                 <div class="group">
                 <h3>Destination</h3>
-                <input type="text" placeholder="on vous depose ou?">
+                <input type="text" id="destination" placeholder="on vous depose ou?">
                 </div>
                 <div class="group">
                 <h3>Date</h3>
-                <input type="date" placeholder="Date">
+                <input type="date" id="date">
                 </div>
                 <div class="group">
                 <h3>heure</h3>
-                <input type="time" placeholder="heure">
+                <input type="time"id="heure" placeholder="heure">
                 </div>
             
             </form>
@@ -56,21 +56,21 @@
                 <img src="assets/images/Capture d'écran 2026-07-10 174211.png" alt="Taxi-standard">
                 <h4> Taxi Standard</h4>
                 <p>4 places</p>
-                <button class="btn-choisir1">Choisir</button>
+                <button class="btn-choisir1" onclick="choisirVehicule('Standard', 2500)">Choisir</button>
             </div>
 
             <div class="card-v">
                 <img src="assets/images/Capture d'écran 2026-07-10 174304.png" alt="TaxiConfort">
                 <h4>Taxi Confort</h4>
                 <p>4places</p>
-                <button class="btn-choisir2">Choisir</button>
+                <button class="btn-choisir2" onclick="choisirVehicule('Confort', 3500)">Choisir</button>
             </div>
 
             <div class="card-v">
                 <img src="assets/images/Capture d'écran 2026-07-10 174340.png" alt="VIP">
                 <h4>VIP</h4>
                 <p>Van 6places</p>
-                <button class="btn-choisir3">Choisir</button>
+                <button class="btn-choisir3" onclick="choisirVehicule('VIP', 6000)">Choisir</button>
             </div>
         </div>
     </section>
@@ -78,7 +78,7 @@
     <div class="Paie">
         <h2>Mode de paiement</h2>
 
-        <input type="radio" id="OM" name="paiement" value="OM">
+        <input type="radio" id="om" name="paiement" value="OM">
         <label for="om">Orange Money</label>
 
         <input type="radio" id="esp" name="paiement" value="ESP">
@@ -89,22 +89,21 @@
         <img src="" alt="Carte">
     </div>
 
-    <div class="ResumeCourse">
-        <h2>RESUME DE LA COURSE</h2>
-
-        <p>Depart: </p>
-        <p>Destination:</p>
-        <p>Distance:</p>
-        <p>Temps estime:</p>
-
-        <h3>Prix estime:</h3>
-
-        <button class="btn-confirmation">Confirmer la reservation</button>
-    </div>
+    <div class="ResumeCourse" id="recap-section">
+    <h2>RESUME DE LA COURSE</h2>
+    <p>Départ : <span id="recap-depart"></span></p>
+    <p>Destination : <span id="recap-destination"></span></p>
+    <p>Distance : <span id="recap-distance"></span></p>
+    <p>Temps estimé : <span id="recap-temps"></span></p>
+    <h3>Prix estimé : <span id="recap-prix"></span> FCFA</h3>
+    <button class="btn-confirmation" onclick="reserverTaxi()">Confirmer la réservation</button>
+</div>
 
 <footer>
      <p>2026 SEVEN-TRIP</p>
      
 </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
