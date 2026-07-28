@@ -87,3 +87,56 @@ function goTaxi() {
 function goLoca() {
     window.location.href ="Location.html"
 }
+
+
+// ===== VARIABLES GLOBALES =====
+let vehiculeChoisi = "";
+let prixVehicule = 0;
+
+// ===== CHOISIR UN VÉHICULE =====
+function choisirVehicule(nom, prix) {
+    vehiculeChoisi = nom;
+    prixVehicule = prix;
+    alert("✅ Véhicule sélectionné : " + nom + " (" + prix + " FCFA)");
+}
+
+// ===== RÉSERVER UN TAXI =====
+function reserverTaxi() {
+    // 1. Récupérer les valeurs
+    let depart = document.getElementById("depart").value;
+    let destination = document.getElementById("destination").value;
+    let date = document.getElementById("date").value;
+    let heure = document.getElementById("heure").value;
+    let paiement = document.querySelector('input[name="paiement"]:checked');
+
+    // 2. Vérifier que tous les champs sont remplis
+    if (!depart || !destination || !date || !heure || !vehiculeChoisi || !paiement) {
+        alert("⚠️ Veuillez remplir tous les champs.");
+        return;
+    }
+
+    // 3. Mettre à jour le récapitulatif
+    document.getElementById("recap-depart").innerText = depart;
+    document.getElementById("recap-destination").innerText = destination;
+    document.getElementById("recap-distance").innerText = "12 km";
+    document.getElementById("recap-temps").innerText = "18 min";
+    document.getElementById("recap-prix").innerText = prixVehicule;
+
+    // 4. Sauvegarder la réservation
+    let reservation = {
+        depart: depart,
+        destination: destination,
+        date: date,
+        heure: heure,
+        vehicule: vehiculeChoisi,
+        paiement: paiement.value,
+        prix: prixVehicule
+    };
+
+    let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
+    reservations.push(reservation);
+    localStorage.setItem("reservations", JSON.stringify(reservations));
+
+    // 5. Message de confirmation
+    alert("✅ Réservation confirmée !");
+}
