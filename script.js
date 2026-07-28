@@ -40,6 +40,13 @@ function inscription() {
 
     // Rediriger vers la page d'accueil
     window.location.href = "Accueil.html";
+
+    document.getElementById("nom").value = "";
+document.getElementById("prenom").value = "";
+document.getElementById("email").value = "";
+document.getElementById("utilisateur").value = "";
+document.getElementById("mdp").value = "";
+document.getElementById("mdp-conf").value = "";
 }
 
 
@@ -64,6 +71,13 @@ function connexion() {
     } else {
         alert("Nom d'utilisateur ou mot de passe incorrect.");
     }
+
+    document.getElementById("nom").value = "";
+document.getElementById("prenom").value = "";
+document.getElementById("email").value = "";
+document.getElementById("utilisateur").value = "";
+document.getElementById("mdp").value = "";
+document.getElementById("mdp-conf").value = "";
 }
 
 function goTaxi() {
