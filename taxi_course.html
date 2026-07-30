@@ -29,19 +29,19 @@
             <form class="Info">
                 <div class="group">
                 <h3>Depart</h3>
-                <input type="text" id="depart" placeholder="On vous prends ou?">
+                <input type="text" id="depart" oninput="majRecap()">
                 </div>
                 <div class="group">
                 <h3>Destination</h3>
-                <input type="text" id="destination" placeholder="on vous depose ou?">
+                <input type="text" id="destination" oninput="majRecap()">
                 </div>
                 <div class="group">
                 <h3>Date</h3>
-                <input type="date" id="date">
+                <input type="date" id="date" oninput="majRecap()">
                 </div>
                 <div class="group">
                 <h3>heure</h3>
-                <input type="time"id="heure" placeholder="heure">
+                <input type="time"id="heure" placeholder="heure" oninput="majRecap()">
                 </div>
             
             </form>
@@ -95,7 +95,9 @@
     <p>Destination : <span id="recap-destination"></span></p>
     <p>Distance : <span id="recap-distance"></span></p>
     <p>Temps estimé : <span id="recap-temps"></span></p>
+    <p>Vehicule : <span id="recap-vehicule"></span></p>
     <h3>Prix estimé : <span id="recap-prix"></span> FCFA</h3>
+
     <button class="btn-confirmation" onclick="reserverTaxi()">Confirmer la réservation</button>
 </div>
 
