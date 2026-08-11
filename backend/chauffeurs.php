@@ -23,4 +23,8 @@ function ajouterChauffeur($nom, $telephone, $vehicule_id) {
 
     return $conn->query($sql);
 }
+header('Content-Type: application/json');
+
+$chauffeurs = getChauffeurs();
+echo json_encode($chauffeurs);
 ?>

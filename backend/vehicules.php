@@ -23,4 +23,9 @@ function ajouterVehicule($nom, $prix, $image, $type, $places, $transmission, $ca
 
     return $conn->query($sql);
 }
+
+header('Content-Type: application/json');
+
+$vehicules = getVehicules();
+echo json_encode($vehicules);
 ?>

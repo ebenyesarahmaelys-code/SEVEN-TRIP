@@ -26,4 +26,18 @@ function inscrire($nom, $prenom, $email, $telephone, $utilisateur, $mdp) {
         return ["success" => false, "message" => "Erreur : " . $conn->error];
     }
 }
+
+header('Content-Type: application/json');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nom = $_POST['nom'] ?? '';
+    $prenom = $_POST['prenom'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $telephone = $_POST['telephone'] ?? '';
+    $utilisateur = $_POST['utilisateur'] ?? '';
+    $mdp = $_POST['mdp'] ?? '';
+
+    $result = inscrire($nom, $prenom, $email, $telephone, $utilisateur, $mdp);
+    echo json_encode($result);
+}
 ?>

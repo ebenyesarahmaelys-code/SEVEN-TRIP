@@ -14,4 +14,10 @@ function getReservations($utilisateur_id) {
 
     return $reservations;
 }
+
+header('Content-Type: application/json');
+
+$user_id = $_GET['user_id'] ?? 1;
+$reservations = getReservations($user_id);
+echo json_encode($reservations);
 ?>

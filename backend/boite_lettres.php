@@ -23,4 +23,10 @@ function getMessages($utilisateur_id) {
 
     return $messages;
 }
+
+header('Content-Type: application/json');
+
+$user_id = $_GET['user_id'] ?? 1;
+$messages = getMessages($user_id);
+echo json_encode($messages);
 ?>
