@@ -1,7 +1,11 @@
+// ========================================
+//  INSCRIPTION (avec PHP)
+// ========================================
 function inscription() {
     let nom = document.getElementById("nom").value;
     let prenom = document.getElementById("prenom").value;
     let email = document.getElementById("email").value;
+    let telephone = document.getElementById("telephone").value;
     let utilisateur = document.getElementById("utilisateur").value;
     let mdp = document.getElementById("mdp").value;
     let mdpConf = document.getElementById("mdp-conf").value;
@@ -16,42 +20,32 @@ function inscription() {
         return;
     }
 
-    let utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
-    let existe = utilisateurs.some(u => u.utilisateur === utilisateur);
+    let formData = new FormData();
+    formData.append("nom", nom);
+    formData.append("prenom", prenom);
+    formData.append("email", email);
+    formData.append("telephone", telephone);
+    formData.append("utilisateur", utilisateur);
+    formData.append("mdp", mdp);
 
-    if (existe) {
-        alert("Ce nom d'utilisateur est déjà pris.");
-        return;
-    }
-
-    let nouvelUtilisateur = {
-        nom: nom,
-        prenom: prenom,
-        email: email,
-        utilisateur: utilisateur,
-        mdp: mdp,
-        points: 0
-    };
-
-    utilisateurs.push(nouvelUtilisateur);
-    localStorage.setItem("utilisateurs", JSON.stringify(utilisateurs));
-
-    alert("Compte créé avec succès ! Bienvenue " + nom + " ☺️");
-
-    // Rediriger vers la page d'accueil
-    window.location.href = "Accueil.html";
-
-    document.getElementById("nom").value = "";
-document.getElementById("prenom").value = "";
-document.getElementById("email").value = "";
-document.getElementById("utilisateur").value = "";
-document.getElementById("mdp").value = "";
-document.getElementById("mdp-conf").value = "";
+    fetch("../backend/inscription.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.success) {
+            window.location.href = "Accueil.html";
+        }
+    })
+    .catch(error => console.error("Erreur :", error));
 }
 
-
+// ========================================
+//  CONNEXION (avec PHP)
+// ========================================
 function connexion() {
-    
     let utilisateur = document.getElementById("utilisateur").value;
     let mdp = document.getElementById("mdp").value;
 
@@ -60,72 +54,29 @@ function connexion() {
         return;
     }
 
-    let utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+    let formData = new FormData();
+    formData.append("utilisateur", utilisateur);
+    formData.append("mdp", mdp);
 
-    let compteValide = utilisateurs.some(u => u.utilisateur === utilisateur && u.mdp === mdp);
-
-    if(compteValide) {
-        alert("Connexion reussie ! Bienvenue " + utilisateur +"☺️");
-        window.location.href ="Accueil.html";
-
-    } else {
-        alert("Nom d'utilisateur ou mot de passe incorrect.");
-    }
-
-    document.getElementById("nom").value = "";
-document.getElementById("prenom").value = "";
-document.getElementById("email").value = "";
-document.getElementById("utilisateur").value = "";
-document.getElementById("mdp").value = "";
-document.getElementById("mdp-conf").value = "";
+    fetch("../backend/connexion.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Connexion réussie ! Bienvenue " + data.user.nom + " ☺️");
+            window.location.href = "Accueil.html";
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => console.error("Erreur :", error));
 }
 
-function goTaxi() {
-    window.location.href ="taxi_course.html"
-}
-
-function goLoca() {
-    window.location.href ="Location.html"
-}
-// === VARIABLES GLOBALES ===
-let vehiculeChoisi = "";
-let prixVehicule = 0;
-
-// === CHOISIR UN VÉHICULE ===
-function choisirVehicule(nom, prix) {
-    vehiculeChoisi = nom;
-    prixVehicule = prix;
-    document.getElementById("recap-vehicule").innerText = nom + " (" + prix + " FCFA)";
-    majRecap(); // ← pour mettre à jour le prix immédiatement
-}
-
-// === METTRE À JOUR LE RÉCAPITULATIF ===
-function majRecap() {
-    let depart = document.getElementById("depart").value;
-    let destination = document.getElementById("destination").value;
-    let date = document.getElementById("date").value;
-    let heure = document.getElementById("heure").value;
-
-    document.getElementById("recap-depart").innerText = depart || "Non renseigné";
-    document.getElementById("recap-destination").innerText = destination || "Non renseigné";
-    document.getElementById("recap-date").innerText = date || "Non renseigné";
-    document.getElementById("recap-heure").innerText = heure || "Non renseigné";
-
-    // Calcul de la distance et du prix
-    if (depart && destination && depart.toLowerCase() !== destination.toLowerCase()) {
-        let distance = Math.floor(Math.random() * 25) + 5;
-        let duree = Math.round(distance * 2);
-        let prix = distance * 500 + prixVehicule;
-
-        document.getElementById("recap-distance").innerText = distance + " km";
-        document.getElementById("recap-temps").innerText = duree + " min";
-        document.getElementById("recap-prix").innerText = prix + " FCFA";
-    } else {
-        document.getElementById("recap-distance").innerText = "0 km";
-        document.getElementById("recap-temps").innerText = "0 min";
-        document.getElementById("recap-prix").innerText = "0 FCFA";
-    }
-}
+// ========================================
+//  RÉSERVATION TAXI (avec PHP)
+// ========================================
 function reserverTaxi() {
     let depart = document.getElementById("depart").value;
     let destination = document.getElementById("destination").value;
@@ -138,64 +89,108 @@ function reserverTaxi() {
         return;
     }
 
-    // Calcul
     let distance = Math.floor(Math.random() * 25) + 5;
     let duree = Math.round(distance * 2);
     let prix = distance * 500 + prixVehicule;
 
-    // Afficher le récapitulatif
-    document.getElementById("recap-depart").innerText = depart;
-    document.getElementById("recap-destination").innerText = destination;
-    document.getElementById("recap-date").innerText = date;
-    document.getElementById("recap-heure").innerText = heure;
-    document.getElementById("recap-vehicule").innerText = vehiculeChoisi;
-    document.getElementById("recap-distance").innerText = distance + " km";
-    document.getElementById("recap-temps").innerText = duree + " min";
-    document.getElementById("recap-prix").innerText = prix + " FCFA";
+    let formData = new FormData();
+    formData.append("utilisateur_id", 1); // à remplacer par session
+    formData.append("depart", depart);
+    formData.append("destination", destination);
+    formData.append("date", date);
+    formData.append("heure", heure);
+    formData.append("vehicule", vehiculeChoisi);
+    formData.append("paiement", paiement.value);
+    formData.append("distance", distance);
+    formData.append("duree", duree);
+    formData.append("prix", prix);
 
-    // 1ère confirmation
-    let confirm1 = confirm("✅ Vérifiez vos informations :\n\n" +
-        "Départ : " + depart + "\n" +
-        "Destination : " + destination + "\n" +
-        "Date : " + date + "\n" +
-        "Heure : " + heure + "\n" +
-        "Véhicule : " + vehiculeChoisi + "\n" +
-        "Paiement : " + paiement.value + "\n\n" +
-        "📌 Cliquez sur OK pour voir le récapitulatif complet.");
+    fetch("../backend/reservation.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.success) {
+            window.location.href = "Accueil.html";
+        }
+    })
+    .catch(error => console.error("Erreur :", error));
+}
 
-    if (!confirm1) return;
+// ========================================
+//  CHARGER L'HISTORIQUE
+// ========================================
+function chargerHistorique() {
+    fetch("../backend/historique.php?user_id=1")
+        .then(response => response.json())
+        .then(data => {
+            let container = document.getElementById("historique-container");
+            if (!container) return;
+            container.innerHTML = "";
+            data.forEach(resa => {
+                container.innerHTML += `
+                    <div class="history-card">
+                        <div class="history-info">
+                            <h3>${resa.vehicule}</h3>
+                            <p>${resa.depart} → ${resa.destination}</p>
+                            <small>${resa.date} à ${resa.heure}</small>
+                        </div>
+                        <div class="history-price">${resa.prix} FCFA</div>
+                    </div>
+                `;
+            });
+        })
+        .catch(err => console.error("Erreur historique :", err));
+}
 
-    // 2ème confirmation
-    let confirm2 = confirm("📋 Récapitulatif final :\n\n" +
-        "Distance : " + distance + " km\n" +
-        "Durée estimée : " + duree + " min\n" +
-        "Prix estimé : " + prix + " FCFA\n\n" +
-        "✅ Confirmez-vous cette réservation ?");
+// ========================================
+//  CHARGER LES MESSAGES
+// ========================================
+function chargerMessages() {
+    fetch("../backend/boite_lettres.php?user_id=1")
+        .then(response => response.json())
+        .then(data => {
+            let container = document.getElementById("messages-container");
+            if (!container) return;
+            container.innerHTML = "";
+            data.forEach(msg => {
+                container.innerHTML += `
+                    <div class="message">
+                        <div class="message-icon">📩</div>
+                        <div>
+                            <h3>${msg.titre}</h3>
+                            <p>${msg.message}</p>
+                        </div>
+                        <span>${msg.date_envoi}</span>
+                    </div>
+                `;
+            });
+        })
+        .catch(err => console.error("Erreur messages :", err));
+}
 
-    if (!confirm2) {
-        alert("❌ Réservation annulée.");
-        return;
-    }
+// ========================================
+//  CHARGER LES POINTS
+// ========================================
+function chargerPoints() {
+    fetch("../backend/points.php?user_id=1")
+        .then(response => response.json())
+        .then(data => {
+            let el = document.getElementById("points-affichage");
+            if (el) el.textContent = data.points + " pts";
+        })
+        .catch(err => console.error("Erreur points :", err));
+}
 
-    // Sauvegarde
-    let reservation = {
-        depart,
-        destination,
-        date,
-        heure,
-        vehicule: vehiculeChoisi,
-        paiement: paiement.value,
-        distance,
-        duree,
-        prix
-    };
+// ========================================
+//  REDIRECTIONS
+// ========================================
+function goTaxi() {
+    window.location.href = "taxi_course.html";
+}
 
-    let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
-    reservations.push(reservation);
-    localStorage.setItem("reservations", JSON.stringify(reservations));
-
-    alert("✅ Réservation confirmée !");
-
-    // Rediriger vers l'accueil
-    window.location.href = "Accueil.html";
+function goLoca() {
+    window.location.href = "location.html";
 }
