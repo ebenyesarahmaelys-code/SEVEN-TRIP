@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven-Trip - Admin</title>
+    <link rel="stylesheet" href="seven-trip.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">SEVEN-TRIP</div>
+    <div class="links">
+        <a href="Accueil.html">⌂<span>Accueil</span></a>
+        <a href="boite_lettres.html">✉<span>Boîte aux lettres</span></a>
+        <a href="#">☆<span>Mes points</span></a>
+        <a href="historique.html">◷<span>Historique</span></a>
+        <a href="parametres.html">⚙<span>Paramètres</span></a>
+        <a href="#">ⓘ<span>À propos</span></a>
+    </div>
+    <div class="user">
+        <div class="avatar">A</div>
+        <div><strong>Admin</strong><small>Administrateur</small></div>
+        <span>⌄</span>
+    </div>
+</nav>
+
+<main class="page admin-page">
+    <div class="page-header">
+        <h1>Tableau de bord</h1>
+        <p>Bienvenue administrateur 👋</p>
+    </div>
+
+    <section id="stats-container" class="stats">
+        <!-- Rempli dynamiquement par Scripte.js -->
+    </section>
+
+    <section class="admin-grid">
+        <div class="chart-card">
+            <h2>Courses</h2>
+            <div class="fake-chart">
+                <div class="chart-points">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        <div class="activities">
+            <h2>Activités récentes</h2>
+            <div id="activites-container"></div>
+            <button class="secondary-button">Voir toutes</button>
+        </div>
+    </section>
+</main>
+
+<script src="Scripte.js"></script>
+<script>
+    chargerStats();
+</script>
+</body>
+</html>

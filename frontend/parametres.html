@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven-Trip - Paramètres</title>
+    <link rel="stylesheet" href="seven-trip.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">SEVEN-TRIP</div>
+    <div class="links">
+        <a href="Accueil.html">⌂<span>Accueil</span></a>
+        <a href="boite_lettres.html">✉<span>Boîte aux lettres</span></a>
+        <a href="#">☆<span>Mes points</span></a>
+        <a href="historique.html">◷<span>Historique</span></a>
+        <a href="parametres.html" class="active">⚙<span>Paramètres</span></a>
+        <a href="#">ⓘ<span>À propos</span></a>
+    </div>
+    <div class="user">
+        <div class="avatar">S</div>
+        <div>
+            <strong>Sarah</strong>
+            <small id="points-affichage">0 pts</small>
+        </div>
+        <span>⌄</span>
+    </div>
+</nav>
+
+<main class="page">
+    <div class="page-header">
+        <h1>Paramètres</h1>
+        <p>Gérez votre compte et vos préférences.</p>
+    </div>
+
+    <div class="settings-layout">
+        <aside class="settings-menu">
+            <button class="selected">👤 Mon profil</button>
+            <button>🔒 Sécurité</button>
+            <button>⚙ Préférences</button>
+            <button>🔔 Notifications</button>
+            <button>💳 Moyens de paiement</button>
+            <button>◉ Thème</button>
+            <button>🌐 Langue</button>
+            <button class="logout">↪ Déconnexion</button>
+        </aside>
+
+        <section class="settings-content">
+            <div class="setting-card">
+                <h2>Informations personnelles</h2>
+                <div class="profile-form">
+                    <div class="profile-photo">
+                        <div class="big-avatar">S</div>
+                        <button>📷</button>
+                    </div>
+                    <div class="fields">
+                        <label>Nom complet <input type="text" id="profil-nom"></label>
+                        <label>Email <input type="email" id="profil-email"></label>
+                        <label>Téléphone <input type="tel" id="profil-tel"></label>
+                        <button class="main-button">Modifier</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-card">
+                <h2>Changer le mot de passe</h2>
+                <label>Ancien mot de passe <input type="password"></label>
+                <label>Nouveau mot de passe <input type="password"></label>
+                <label>Confirmer <input type="password"></label>
+                <button class="main-button">Enregistrer</button>
+            </div>
+
+            <div class="setting-card preferences">
+                <h2>Préférences</h2>
+                <div>
+                    <h3>Thème</h3>
+                    <label class="radio"><input type="radio" name="theme" checked> Sombre</label>
+                    <label class="radio"><input type="radio" name="theme"> Clair</label>
+                </div>
+                <div>
+                    <h3>Langue</h3>
+                    <label class="radio"><input type="radio" name="langue" checked> Français</label>
+                    <label class="radio"><input type="radio" name="langue"> English</label>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script src="Scripte.js"></script>
+<script>
+    chargerPoints();
+</script>
+</body>
+</html>

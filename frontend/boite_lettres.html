@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven-Trip - Boîte aux lettres</title>
+    <link rel="stylesheet" href="seven-trip.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">SEVEN-TRIP</div>
+    <div class="links">
+        <a href="Accueil.html">⌂<span>Accueil</span></a>
+        <a href="boite_lettres.html" class="active">✉<span>Boîte aux lettres</span></a>
+        <a href="#">☆<span>Mes points</span></a>
+        <a href="historique.html">◷<span>Historique</span></a>
+        <a href="parametres.html">⚙<span>Paramètres</span></a>
+        <a href="#">ⓘ<span>À propos</span></a>
+    </div>
+    <div class="user">
+        <div class="avatar">S</div>
+        <div>
+            <strong>Sarah</strong>
+            <small id="points-affichage">0 pts</small>
+        </div>
+        <span>⌄</span>
+    </div>
+</nav>
+
+<main class="page">
+    <div class="page-header">
+        <h1>Boîte aux lettres</h1>
+        <p>Voici tous vos messages.</p>
+    </div>
+
+    <div class="mail-layout">
+        <section id="messages-container" class="message-list">
+            <!-- Rempli dynamiquement par Scripte.js -->
+        </section>
+    </div>
+</main>
+
+<script src="Scripte.js"></script>
+<script>
+    chargerMessages();
+    chargerPoints();
+</script>
+</body>
+</html>

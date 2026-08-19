@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven-Trip - Historique</title>
+    <link rel="stylesheet" href="seven-trip.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">SEVEN-TRIP</div>
+    <div class="links">
+        <a href="Accueil.html">⌂<span>Accueil</span></a>
+        <a href="boite_lettres.html">✉<span>Boîte aux lettres</span></a>
+        <a href="#">☆<span>Mes points</span></a>
+        <a href="historique.html" class="active">◷<span>Historique</span></a>
+        <a href="parametres.html">⚙<span>Paramètres</span></a>
+        <a href="#">ⓘ<span>À propos</span></a>
+    </div>
+    <div class="user">
+        <div class="avatar">S</div>
+        <div>
+            <strong>Sarah</strong>
+            <small id="points-affichage">0 pts</small>
+        </div>
+        <span>⌄</span>
+    </div>
+</nav>
+
+<main class="page">
+    <div class="page-header">
+        <h1>Historique</h1>
+        <p>Retrouvez toutes vos courses et locations.</p>
+    </div>
+
+    <div class="history-filters">
+        <button class="filter active">Toutes</button>
+        <button class="filter">🚕 Courses Taxi</button>
+        <button class="filter">🚗 Locations</button>
+        <select>
+            <option>Toutes les dates</option>
+            <option>Cette semaine</option>
+            <option>Ce mois</option>
+        </select>
+    </div>
+
+    <section id="historique-container" class="history-list">
+        <!-- Rempli dynamiquement par Scripte.js -->
+    </section>
+</main>
+
+<script src="Scripte.js"></script>
+<script>
+    chargerHistorique();
+    chargerPoints();
+</script>
+</body>
+</html>
