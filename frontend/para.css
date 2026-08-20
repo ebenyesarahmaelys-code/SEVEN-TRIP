@@ -1,0 +1,262 @@
+/* ===== PARAMETRES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080909;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    height: 80px;
+    background: #050505;
+    border-bottom: 1px solid #292929;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px;
+}
+
+.logo {
+    color: #ff6b00;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.links a {
+    color: #eeeeee;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 22px;
+    transition: .3s;
+}
+
+.links a span {
+    font-size: 13px;
+}
+
+.links a:hover {
+    color: #ff6b00;
+}
+
+.links a.active {
+    color: #ff6b00;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user small {
+    display: block;
+    color: #ff6b00;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ff6b00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* ===== PAGE ===== */
+.page {
+    max-width: 1400px;
+    margin: auto;
+    padding: 40px;
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #a7a7a7;
+    font-size: 16px;
+}
+
+/* ===== PARAMETRES ===== */
+.settings-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 18px;
+}
+
+.settings-menu {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.settings-menu button {
+    background: none;
+    border: none;
+    color: #ccc;
+    text-align: left;
+    padding: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.settings-menu button:hover {
+    background: #222;
+}
+
+.settings-menu .selected {
+    background: #ff6b00;
+    color: white;
+}
+
+.settings-menu .logout {
+    margin-top: auto;
+    color: #ff5c43;
+}
+
+.settings-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.setting-card {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.setting-card h2 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.profile-form {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+}
+
+.profile-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.big-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #ff6b00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.profile-photo button {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    color: #aaa;
+    font-size: 13px;
+    display: block;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    background: #0c0c0c;
+    border: 1px solid #333;
+    border-radius: 7px;
+    padding: 12px;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff6b00;
+}
+
+.preferences {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 20px;
+    color: #ddd;
+}
+
+.radio input {
+    width: auto;
+    margin: 0;
+}
+
+.main-button {
+    width: 100%;
+    background: #ff6b00;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background: #ff7b1a;
+}
